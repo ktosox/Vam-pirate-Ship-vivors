@@ -1,2 +1,2 @@
-# Vam-pirate-Ship-vivors-
+# Vam-pirate-Ship-vivors
 Repo for a marine themed game
