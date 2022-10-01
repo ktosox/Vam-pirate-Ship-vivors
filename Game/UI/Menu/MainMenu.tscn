@@ -1,5 +1,112 @@
-[gd_scene format=2]
+[gd_scene load_steps=9 format=2]
 
-[node name="MainMenu" type="Control"]
+[ext_resource path="res://UI/Menu/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/Menu/title_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/Menu/MenuButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Menu/MainMenu.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.312849, 0.631285, 1 )
+colors = PoolColorArray( 0.218614, 0.214539, 0.289062, 1, 0.00157576, 0.453237, 0.520077, 1, 0.346375, 0.886719, 0.646097, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 1280
+height = 720
+fill = 1
+fill_from = Vector2( 0.5, 1.643 )
+fill_to = Vector2( 0.5, -0.259 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "New Anim"
+length = 20.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture:fill_from")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 11.1 ),
+"transitions": PoolRealArray( 2, -2 ),
+"update": 0,
+"values": [ Vector2( 0.5, 3.253 ), Vector2( 0.5, 1.709 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture:fill_from")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 1.643 ) ]
+}
+
+[node name="MainMenu" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 1 )
+texture = SubResource( 2 )
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+playback_speed = 2.0
+"anims/New Anim" = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="Layout" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="RichTextLabel" parent="Layout"]
+margin_right = 1280.0
+margin_bottom = 318.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][wave amp=85 freq=0.6]Vam-pirate Ship-vivors"
+text = "Vam-pirate Ship-vivors"
+scroll_active = false
+
+[node name="Buttons" type="VBoxContainer" parent="Layout"]
+margin_top = 322.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="BEGIN" parent="Layout/Buttons" instance=ExtResource( 3 )]
+margin_left = 490.0
+margin_top = 40.0
+margin_right = 790.0
+margin_bottom = 89.0
+text = "BEGIN"
+
+[node name="OPTIONS" parent="Layout/Buttons" instance=ExtResource( 3 )]
+margin_left = 490.0
+margin_top = 174.0
+margin_right = 790.0
+margin_bottom = 223.0
+text = "OPTIONS"
+
+[node name="EXIT" parent="Layout/Buttons" instance=ExtResource( 3 )]
+margin_left = 490.0
+margin_top = 308.0
+margin_right = 790.0
+margin_bottom = 357.0
+text = "EXIT"
+
+[connection signal="pressed" from="Layout/Buttons/BEGIN" to="." method="_on_BEGIN_pressed"]
+[connection signal="pressed" from="Layout/Buttons/OPTIONS" to="." method="_on_OPTIONS_pressed"]
+[connection signal="pressed" from="Layout/Buttons/EXIT" to="." method="_on_EXIT_pressed"]

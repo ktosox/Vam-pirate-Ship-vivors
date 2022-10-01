@@ -1,0 +1,13 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Fonts/freebooter-font/FreebooterShadow-yL0V.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 168
+outline_size = 7
+outline_color = Color( 0.145098, 0.768627, 0.792157, 1 )
+use_filter = true
+extra_spacing_top = 60
+extra_spacing_char = -5
+extra_spacing_space = 40
+font_data = ExtResource( 1 )
