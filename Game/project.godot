@@ -11,7 +11,12 @@ config_version=4
 [application]
 
 config/name="Vam-pirate-Ship-vivors"
+run/main_scene="res://World/World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GM="*res://Managers/GameManager.gd"
 
 [display]
 
@@ -24,10 +29,22 @@ window/stretch/aspect="keep"
 
 common/drop_mouse_on_gui_input_disabled=true
 
+[layer_names]
+
+2d_physics/layer_1="DO NOT USE"
+2d_physics/layer_3="Land"
+2d_physics/layer_4="Enemy"
+2d_physics/layer_5="Enemy Attack"
+2d_physics/layer_6="Player"
+2d_physics/layer_7="Player Attack"
+2d_physics/layer_8="Loot"
+
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
