@@ -8,6 +8,54 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "CellEditor",
+"language": "GDScript",
+"path": "res://addons/resources_speadsheet_view/typed_cells/cell_editor.gd"
+}, {
+"base": "GridContainer",
+"class": "SettingsGrid",
+"language": "GDScript",
+"path": "res://addons/resources_speadsheet_view/settings_grid.gd"
+}, {
+"base": "Control",
+"class": "SheetsDockEditor",
+"language": "GDScript",
+"path": "res://addons/resources_speadsheet_view/typed_editors/dock_base.gd"
+}, {
+"base": "Reference",
+"class": "TextEditingUtils",
+"language": "GDScript",
+"path": "res://addons/resources_speadsheet_view/text_editing_utils.gd"
+}, {
+"base": "Button",
+"class": "ThemeIconButton",
+"language": "GDScript",
+"path": "res://addons/resources_speadsheet_view/editor_icon_button.gd"
+}, {
+"base": "Control",
+"class": "ThemeStylebox",
+"language": "GDScript",
+"path": "res://addons/resources_speadsheet_view/editor_stylebox_overrider.gd"
+} ]
+_global_script_class_icons={
+"CellEditor": "",
+"SettingsGrid": "",
+"SheetsDockEditor": "",
+"TextEditingUtils": "",
+"ThemeIconButton": "",
+"ThemeStylebox": ""
+}
+
+[addons]
+
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/color_arrays=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+
 [application]
 
 config/name="Vam-pirate-Ship-vivors"
@@ -24,6 +72,10 @@ window/size/width=1280
 window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/resources_speadsheet_view/plugin.cfg" )
 
 [gui]
 

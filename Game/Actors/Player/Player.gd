@@ -13,7 +13,7 @@ signal level_up
 
 func _ready():
 	$Label.set_as_toplevel(true)
-	GM.target = self
+	GM.player = self
 
 func _physics_process(delta):
 	linear_velocity += max(int(Input.is_action_pressed("ui_up")) - int(Input.is_action_pressed("ui_down")),-0.2) * Vector2(0,-390).rotated(rotation) * delta * ( (linear_velocity.length_squared() + 1) / (linear_velocity.length_squared() + 40) )
@@ -27,7 +27,7 @@ func _physics_process(delta):
 func damage(amount):
 	health -= amount
 	emit_signal("health_changed",health)
-	if health < 0:
+	if health < 1:
 		print("guess I'll die :(")
 	pass
 
@@ -42,8 +42,8 @@ func _on_LootEater_body_entered(body):
 		
 
 func _exit_tree():
-	if GM.target == self:
-		GM.target = null
+	if GM.player == self:
+		GM.player = null
 
 
 func _on_HitBox_area_entered(area):

@@ -6,7 +6,7 @@ var healthPoints = 10.0
 
 var speed = 50
 
-onready var target = GM.target as Node2D
+onready var target = GM.player as Node2D
 
 func _ready():
 	set_physics_process(false)

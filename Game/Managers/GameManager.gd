@@ -1,3 +1,3 @@
 extends Node
 
-var target 
+var player 
