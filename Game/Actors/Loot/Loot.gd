@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var value = 25
+var value = 15
 
 func nom():
 	$CollisionShape2D.set_deferred("disabled",true)

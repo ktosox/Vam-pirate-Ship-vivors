@@ -10,6 +10,7 @@ signal treasure_changed(newTreasure)
 
 signal level_up
 
+
 func _ready():
 	$Label.set_as_toplevel(true)
 	GM.target = self
@@ -43,3 +44,8 @@ func _on_LootEater_body_entered(body):
 func _exit_tree():
 	if GM.target == self:
 		GM.target = null
+
+
+func _on_HitBox_area_entered(area):
+	damage(10)
+	pass # Replace with function body.
