@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Managers/boon.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Icons/cannon-ball.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+oneShot = false
+name = "Canon Speed"
+description = "Reduces cooldown on basic canon"
+icon = ExtResource( 2 )

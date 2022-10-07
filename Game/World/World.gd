@@ -1,6 +1,6 @@
 extends Node2D
 
-var waterChunks = [{},{}]
+var waterChunks = [{},{},{},{}]
 
 var landChunks = [{},{},{}]
 
@@ -14,6 +14,12 @@ func _ready():
 	var water2 = load("res://World/Chunks/WaterChunk2.tscn").instance() as TileMap
 	for T in water2.get_used_cells():
 		waterChunks[1][T] = water2.get_cellv(T)
+	var water3 = load("res://World/Chunks/WaterChunk3.tscn").instance() as TileMap
+	for T in water3.get_used_cells():
+		waterChunks[2][T] = water3.get_cellv(T)
+	var water4 = load("res://World/Chunks/WaterChunk4.tscn").instance() as TileMap
+	for T in water4.get_used_cells():
+		waterChunks[3][T] = water4.get_cellv(T)
 	var land1 = load("res://World/Chunks/LandChunk1.tscn").instance() as TileMap
 	for T in land1.get_used_cells():
 		landChunks[0][T] = land1.get_cellv(T)

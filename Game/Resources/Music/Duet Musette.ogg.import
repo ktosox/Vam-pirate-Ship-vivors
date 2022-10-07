@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Duet Musette.ogg-05dd04488dfabb1ce6b2aea152aca346.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

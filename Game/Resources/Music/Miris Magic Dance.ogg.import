@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Miris Magic Dance.ogg-94d358b5af355d3742acc9ff4c662e
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

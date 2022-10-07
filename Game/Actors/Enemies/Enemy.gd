@@ -2,14 +2,15 @@ extends Node2D
 
 var lootScene = preload("res://Actors/Loot/Loot.tscn")
 
-var healthPoints = 10.0
+onready var healthPoints = 5.0 + 2.2 * GM.enemyBoost
 
-var speed = 50
+onready var speed = 40 + 0.9 * GM.enemyBoost
 
-onready var target = GM.player as Node2D
+onready var target = GM.player as Player
 
 func _ready():
 	set_physics_process(false)
+	print("HP: ",healthPoints)
 
 
 func _physics_process(delta):
@@ -41,5 +42,8 @@ func die():
 	pass
 
 func _on_HiBox_area_entered(area):
-	die()
+	healthPoints -= area.damage
+	$Flash.play("New Anim")
+	if healthPoints < 0:
+		die()
 	pass # Replace with function body.

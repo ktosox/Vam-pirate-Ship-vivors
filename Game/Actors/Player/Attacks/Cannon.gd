@@ -4,11 +4,15 @@ var ballScene = preload("res://Actors/Player/Attacks/Ball.tscn")
 
 var canShoot = true
 
+var damage = 11.0
 
 func fire():
+	$AudioStreamPlayer2D.pitch_scale = randf()*0.22 + 0.6
+	$AudioStreamPlayer2D.play()
 	var targetList = get_overlapping_areas() as Array
 	assert(targetList.size()>0)
 	var ball = ballScene.instance()
+	ball.damage = damage
 	look_at(targetList[randi()%targetList.size()].global_position)
 	ball.global_position = global_position
 	ball.global_rotation = global_rotation

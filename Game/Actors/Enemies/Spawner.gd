@@ -21,3 +21,10 @@ func spawn_enemy():
 	enemy.global_position = global_position + pick_location()
 	get_parent().get_parent().add_child(enemy)
 	pass
+
+
+func _on_Timer_timeout():
+	spawn_enemy()
+	$Timer.wait_time = 16 / (0.74 * GM.enemyBoost + 12)
+	$Timer.start()
+	pass # Replace with function body.

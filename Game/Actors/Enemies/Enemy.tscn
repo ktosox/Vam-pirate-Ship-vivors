@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Actors/Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Actors/Enemies/HiBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=5]
+radius = 14.0
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.327273 ), 0.0, 0.0, 0, 0 ]
@@ -101,6 +102,37 @@ _data = [ Vector2( 0, 0.195455 ), 0.0, -0.258643, 0, 0, Vector2( 1, 1 ), 1.67806
 offsets = PoolRealArray( 0.189944, 1 )
 colors = PoolColorArray( 0.841797, 0.841797, 0.841797, 1, 0.443359, 0.443359, 0.443359, 0.0472973 )
 
+[sub_resource type="Animation" id=8]
+resource_name = "New Anim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Enemy" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -122,7 +154,7 @@ gravity = Vector2( 0, 0 )
 initial_velocity = 30.0
 initial_velocity_random = 0.11
 damping = 27.52
-scale_amount = 7.0
+scale_amount = 10.0
 scale_amount_curve = SubResource( 1 )
 color_ramp = SubResource( 2 )
 
@@ -133,18 +165,18 @@ anims/Spawn = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="Blood" type="CPUParticles2D" parent="."]
 visible = false
 emitting = false
-amount = 30
+amount = 40
 lifetime = 1.8
 one_shot = true
 explosiveness = 1.0
 emission_shape = 1
-emission_sphere_radius = 6.0
+emission_sphere_radius = 8.0
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 41.32
@@ -152,9 +184,13 @@ radial_accel = -12.85
 damping = 42.2
 angle = 720.0
 angle_random = 1.0
-scale_amount = 12.0
+scale_amount = 15.0
 scale_amount_curve = SubResource( 6 )
 color = Color( 0.729412, 0.054902, 0.054902, 1 )
 color_ramp = SubResource( 7 )
+
+[node name="Flash" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 8 )
+anims/RESET = SubResource( 9 )
 
 [connection signal="area_entered" from="HiBox" to="." method="_on_HiBox_area_entered"]
