@@ -52,6 +52,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 script = ExtResource( 1 )
 

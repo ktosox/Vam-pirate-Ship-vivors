@@ -43,6 +43,7 @@ func die():
 
 func _on_HiBox_area_entered(area):
 	healthPoints -= area.damage
+	$Flash.stop()
 	$Flash.play("New Anim")
 	if healthPoints < 0:
 		die()

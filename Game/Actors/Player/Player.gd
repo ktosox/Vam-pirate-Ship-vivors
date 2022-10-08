@@ -34,6 +34,7 @@ func _physics_process(delta):
 	
 	$Label.rect_position = global_position + Vector2(-32,-20)
 	$Label.text = "Angular: " + str(angular_velocity) + " / Linear: " + str(linear_velocity)
+	$ViewportContainer/Viewport/Galeon.rotation.z = angular_velocity * 0.4
 	health += regen * delta
 	health = min(health,100)
 
