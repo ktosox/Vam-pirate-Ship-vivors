@@ -8,9 +8,11 @@ onready var speed = 40 + 0.9 * GM.enemyBoost
 
 onready var target = GM.player as Player
 
+var alive = true
+
 func _ready():
 	set_physics_process(false)
-	print("HP: ",healthPoints)
+
 
 
 func _physics_process(delta):
@@ -30,6 +32,7 @@ func start():
 	pass
 
 func die():
+	alive = false
 	set_physics_process(false)
 	$Blood.emitting = true
 	$Sprite.visible = false
@@ -42,6 +45,8 @@ func die():
 	pass
 
 func _on_HiBox_area_entered(area):
+	if !alive:
+		return
 	healthPoints -= area.damage
 	$Flash.stop()
 	$Flash.play("New Anim")

@@ -4,12 +4,22 @@ var damage = 6.0
 
 var speed = 500
 
-
+var shootCount = 3
 
 var spread = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$OrphaneTimer.start()
+	if shootCount > 1:
+		var copy = self.duplicate()
+		copy.shootCount = shootCount - 1
+		if sign(spread+0.001) > 0:
+			copy.spread = (spread + 0.04) * -1
+		else:
+			copy.spread = -spread
+
+		get_tree().current_scene.call_deferred("add_child",copy)
 	pass # Replace with function body.
 
 

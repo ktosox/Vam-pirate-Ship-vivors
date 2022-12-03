@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/resources_speadsheet_view/typed_editors/dock_base.gd"
 }, {
+"base": "Area2D",
+"class": "Shooter",
+"language": "GDScript",
+"path": "res://Actors/Player/Attacks/BaseShooter.gd"
+}, {
 "base": "Reference",
 "class": "TextEditingUtils",
 "language": "GDScript",
@@ -55,6 +60,7 @@ _global_script_class_icons={
 "Player": "",
 "SettingsGrid": "",
 "SheetsDockEditor": "",
+"Shooter": "",
 "TextEditingUtils": "",
 "ThemeIconButton": "",
 "ThemeStylebox": ""

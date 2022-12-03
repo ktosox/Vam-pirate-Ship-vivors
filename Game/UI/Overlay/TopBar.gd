@@ -16,3 +16,8 @@ func level_up():
 func update_treasure(newTreasure):
 	$Layout/TreasureBar.value = newTreasure
 	pass
+
+
+func _on_Menu_pressed():
+	print("menu")
+	pass # Replace with function body.

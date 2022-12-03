@@ -60,7 +60,7 @@ func _on_ChunkTimer_timeout():
 	#get player position in chunk cords
 	var playerTile = $TileMap.world_to_map(GM.player.global_position) + Vector2(-5,-5)
 	var playerChunk = Vector2(round(playerTile.x/10),round(playerTile.y/10))
-	print(playerTile," -> ",playerChunk)
+#	print(playerTile," -> ",playerChunk)
 	for X in range(-4,5):
 		for Y in range(-3,4):
 			if $TileMap.get_cellv( (playerChunk + Vector2(X,Y)) * 10 ) == -1:

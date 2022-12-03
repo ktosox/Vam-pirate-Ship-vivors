@@ -18,7 +18,6 @@ func fire():
 		var shot = shotScene.instance()
 		shot.damage = damage
 		shot.spread = 0.04 * stepify(z,2) * ( 1 - (z%2) * 2 )
-		print(shot.spread)
 		shot.global_position = global_position
 		shot.global_rotation = global_rotation
 		shot.set_as_toplevel(true)

@@ -69,7 +69,7 @@ func _on_AudioStreamPlayer_finished():
 	if currentSong == 0 :
 		currentSong = -1 + 2 * (randi()%2)
 	currentSong *= -1
-	print(currentSong)
+
 	$AudioStreamPlayer.stream = songs[currentSong]
 	yield(get_tree().create_timer(5.0),"timeout")
 	$AudioStreamPlayer.play()
